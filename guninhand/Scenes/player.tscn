@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1v0kfxc07ip8"]
+
+[ext_resource type="Script" uid="uid://cmf6nvtsunrki" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://cxy0luhiubm6q" path="res://Scenes/robot_arm.tscn" id="1_v0iea"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sh265"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
+height = 1.9934082
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_cvnsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0280305, 0)
+mesh = SubResource("CylinderMesh_sh265")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0214964, 0)
+shape = SubResource("CylinderShape3D_4flbx")
+
+[node name="Robot Arm" parent="." instance=ExtResource("1_v0iea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18988219, 1.771386, 0.8045422)
